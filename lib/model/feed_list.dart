@@ -16,9 +16,9 @@ class _FeedListState extends State<FeedList> {
             childAspectRatio: 1.0,
             mainAxisSpacing: 1.0,
             crossAxisSpacing: 1.0),
-        itemCount: items.length,
+        itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
-          return _buildListItem(context, items[index]);
+          return Container();
         });
   }
 }

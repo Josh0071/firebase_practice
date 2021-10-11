@@ -1,6 +1,7 @@
 import 'package:firebase_practice/page/first_page.dart';
 import 'package:firebase_practice/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              _signInButton(),
+              GoogleSignInButton(),
             ],
           ),
         ),
@@ -26,42 +27,17 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _signInButton() {
-    return RawMaterialButton(
-      fillColor: Colors.blue,
-      splashColor: Colors.white,
-      onPressed: () {
-        signInWithGoogle().then((result) {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return FirstPage();
-              },
-            ),
-          );
-        });
-      },
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-      highlightElevation: 0,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Text(
-                'Sign in with Google',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+  Widget GoogleSignInButton() {
+    return SignInButton(Buttons.Google, onPressed: () {
+      signInWithGoogle().then((result) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return FirstPage();
+            },
+          ),
+        );
+      });
+    },);
   }
 }
