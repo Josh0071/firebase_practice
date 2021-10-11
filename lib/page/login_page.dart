@@ -1,4 +1,4 @@
-import 'package:firebase_practice/page/FirstPage.dart';
+import 'package:firebase_practice/page/first_page.dart';
 import 'package:firebase_practice/sign_in.dart';
 import 'package:flutter/material.dart';
 

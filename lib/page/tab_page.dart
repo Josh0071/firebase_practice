@@ -1,4 +1,6 @@
-import 'package:firebase_practice/page/login_page.dart';
+import 'package:firebase_practice/page/account_page.dart';
+import 'package:firebase_practice/page/home_page.dart';
+import 'package:firebase_practice/page/search_page.dart';
 import 'package:flutter/material.dart';
 
 class TabPage extends StatefulWidget {
@@ -11,17 +13,12 @@ class TabPage extends StatefulWidget {
 class _TabPageState extends State<TabPage> {
   int _index = 0;
   List _pages = [
-    LoginPage(),LoginPage(),LoginPage(),
+    HomePage(),SearchPage(),AccountPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('Firebase Practice',
-        style: TextStyle(color: Colors.black),),
-      ),
       body: _pages[_index],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

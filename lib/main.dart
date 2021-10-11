@@ -1,4 +1,4 @@
-import 'package:firebase_practice/page/tab_page.dart';
+import 'package:firebase_practice/page/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,6 +20,6 @@ class MyApp extends StatelessWidget {
         ),
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
-        home: TabPage());
+        home: LoginPage(), );
   }
 }
