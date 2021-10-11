@@ -1,4 +1,6 @@
 import 'package:firebase_practice/model/account_profile.dart';
+import 'package:firebase_practice/model/feed_list.dart';
+import 'package:firebase_practice/page/create_page.dart';
 import 'package:flutter/material.dart';
 
 class AccountPage extends StatelessWidget {
@@ -18,6 +20,14 @@ class AccountPage extends StatelessWidget {
         children: [
           AccountProfile(),
           FeedList(),
+          FloatingActionButton(
+              backgroundColor: Colors.blueAccent,
+              child: Icon(Icons.create),
+              onPressed: () {
+                print('눌림');
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => CreatePage()));
+              }),
 
         ],
       ),
