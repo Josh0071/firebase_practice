@@ -28,15 +28,11 @@ Future<String> signInWithGoogle() async {
   email = user.email!;
   imageUrl = user.photoURL!;
 
-  // Only taking the first part of the name, i.e., First Name
   if (name.contains(" ")) {
     name = name.substring(0, name.indexOf(" "));
   }
 
-  assert(!user.isAnonymous);
-
   final User? currentUser = _auth.currentUser;
-  assert(user.uid == currentUser!.uid);
 
   print('signInWithGoogle succeeded: $user');
 

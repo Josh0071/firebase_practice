@@ -88,7 +88,7 @@ class FirstPage extends StatelessWidget {
                     signOutGoogle();
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(builder: (context) {
-                      return TabPage();
+                      return TabPage(user);
                     }), ModalRoute.withName('/'));
                   },
                   child: Padding(

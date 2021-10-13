@@ -1,10 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_practice/page/account_page.dart';
 import 'package:firebase_practice/page/home_page.dart';
 import 'package:firebase_practice/page/search_page.dart';
 import 'package:flutter/material.dart';
 
 class TabPage extends StatefulWidget {
-  const TabPage({Key? key}) : super(key: key);
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore user;
+
+  TabPage(this.user);
 
   @override
   State<TabPage> createState() => _TabPageState();
@@ -13,7 +17,7 @@ class TabPage extends StatefulWidget {
 class _TabPageState extends State<TabPage> {
   int _index = 0;
   List _pages = [
-    HomePage(),SearchPage(),AccountPage(),
+    HomePage(),SearchPage(widget.user),AccountPage(widget.user),
   ];
 
   @override
